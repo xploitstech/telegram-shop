@@ -2,14 +2,19 @@ const { Telegraf, session, Scenes, Markup } = require("telegraf")
 const faker = require("faker")
 const CustomScenes = require("./scenes")
 const Dummy = require("./modules/dummy")
-const Models = require("../database/models")
-const Database = require("../database/actions")
+const Models = require("./database/models")
+const Database = require("./database/actions")
 const Utils = require("./utils")
 const Template = require("./template")
 const Calendar = require("./modules/calendar")
+require('dotenv').config()
 
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
+
+bot.telegram.setWebhook('https://tele-shop.azurewebsites.net/secret-path')
+
+bot.startWebhook('/secret-path')
 
 // Middlewares
 const stage = new Scenes.Stage([
@@ -103,7 +108,7 @@ bot.on("pre_checkout_query", async (ctx) => {
     await ctx.answerPreCheckoutQuery(true)
 })
 
-bot.launch({ dropPendingUpdates: true })
+//bot.launch({ dropPendingUpdates: true })
 
 process.once("SIGINT", () => bot.stop("SIGINT"))
 process.once("SIGTERM", () => bot.stop("SIGTERM"))
@@ -122,3 +127,7 @@ const validateChatRecord = async function (shopID, userID, chatID) {
         await Database.createChat(shopID, userID, chatID)
     }
 }
+
+require('http')
+    .createServer(bot.webhookCallback('/secret-path'))
+    .listen(8080) 

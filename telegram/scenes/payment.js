@@ -7,6 +7,7 @@ const Utils = require("../utils")
 const Voucher = require("../modules/voucher")
 const Payment = require("../modules/payment")
 const Template = require("../template")
+require('dotenv').config()
 
 
 const paymentScene = new Scenes.BaseScene("PAYMENT_SCENE")
