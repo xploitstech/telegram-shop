@@ -1,15 +1,8 @@
 import { DataTypes, Deferrable, Model } from "sequelize"
 import sequelize from "../index"
 import User from "./user"
+import { ShopAttributes } from "@/interfaces/database"
 
-
-interface ShopAttributes {
-    botID: string,
-    name: string,
-    image: string,
-    botToken: string,
-    ownerID: string
-}
 
 interface ShopCreationAttributes extends ShopAttributes { }
 interface ShopInstance extends Model<ShopAttributes, ShopCreationAttributes>, ShopAttributes {

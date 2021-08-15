@@ -1,14 +1,8 @@
 import { DataTypes, Deferrable, Optional, Model } from "sequelize"
 import sequelize from "../index"
 import Shop from "./shop"
+import { CategoryAttributes } from "@/interfaces/database"
 
-
-interface CategoryAttributes {
-    id: string,
-    name: string,
-    image: string,
-    shopID: string,
-}
 
 interface CategoryCreationAttributes extends Optional<CategoryAttributes, "id"> { }
 interface CategoryInstance extends Model<CategoryAttributes, CategoryCreationAttributes>, CategoryAttributes {

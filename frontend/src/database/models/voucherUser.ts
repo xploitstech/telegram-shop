@@ -2,13 +2,8 @@ import { DataTypes, Deferrable, Model } from "sequelize"
 import sequelize from "../index"
 import Voucher from "./voucher"
 import User from "./user"
+import { VoucherUserAttributes} from "@/interfaces/database"
 
-
-interface VoucherUserAttributes {
-    isClaimed: boolean,
-    voucherID: string,
-    userID: string,
-}
 
 interface VoucherUserCreationAttributes extends VoucherUserAttributes { }
 interface VoucherUserInstance extends Model<VoucherUserAttributes, VoucherUserCreationAttributes>, VoucherUserAttributes {

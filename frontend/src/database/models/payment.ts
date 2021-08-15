@@ -2,14 +2,8 @@ import { DataTypes, Deferrable, Model, Optional } from "sequelize"
 import sequelize from "../index"
 import Order from "./order"
 import Address from "./address"
+import { PaymentAttributes } from "@/interfaces/database"
 
-
-interface PaymentAttributes {
-    id: string,
-    orderID: string,
-    addressID: string,
-    deliveryDate: string,
-}
 
 interface PaymentCreationAttributes extends Optional<PaymentAttributes, "id"> { }
 interface PaymentInstance extends Model<PaymentAttributes, PaymentCreationAttributes>, PaymentAttributes {

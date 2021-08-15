@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "lib": [
@@ -21,7 +21,8 @@
         "jsx": "preserve",
         "baseUrl": ".",
         "paths": {
-            "@/database/*": ["src/database/*"]
+            "@/database/*": ["src/database/*"],
+            "@/interfaces/*": ["src/interfaces/*"],
         },
     },
     "include": [

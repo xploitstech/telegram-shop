@@ -2,13 +2,8 @@ import { DataTypes, Deferrable, Model } from "sequelize"
 import sequelize from "../index"
 import User from "./user"
 import Shop from "./shop"
+import { ChatAttributes } from "@/interfaces/database"
 
-
-interface ChatAttributes {
-    chatID: number,
-    userID: string,
-    shopID: number,
-}
 
 interface ChatCreationAttributes extends ChatAttributes { }
 interface ChatInstance extends Model<ChatAttributes, ChatCreationAttributes>, ChatAttributes {

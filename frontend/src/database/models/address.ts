@@ -1,18 +1,8 @@
 import { DataTypes, Deferrable, Model, Optional } from "sequelize"
 import sequelize from "../index"
 import User from "./user"
+import { AddressAttributes } from "@/interfaces/database"
 
-
-interface AddressAttributes {
-    id: string,
-    addressLineOne: string,
-    addressLineTwo: string,
-    mobile: string,
-    city: string,
-    country: string,
-    postalCode: string,
-    userID: string,
-}
 
 interface AddressCreationAttributes extends Optional<AddressAttributes, "id"> { }
 interface AddressInstance extends Model<AddressAttributes, AddressCreationAttributes>, AddressAttributes {

@@ -1,12 +1,7 @@
 import { DataTypes, Model } from "sequelize"
 import sequelize from "../index"
+import { UserAttributes } from "@/interfaces/database"
 
-
-interface UserAttributes {
-    telegramID: string,
-    name: string,
-    isOwner: boolean,
-}
 
 interface UserCreationAttributes extends UserAttributes { }
 interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {
